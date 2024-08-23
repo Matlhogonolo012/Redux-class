@@ -4,14 +4,12 @@ import { addTodoItem } from "../redux/todoListReducer";
 
 function AddTodoItem() {
   const [item, setItem] = useState("");
-  const dispatch = useDispatch();
-
-  // Date().now
-  // Date.now() ; 
+  const dispatch = useDispatch(); 
 
   const handleAddItem = () => {
     dispatch(addTodoItem({ id: Date.now(), todoItem: item }));
   };
+ 
   return (
     <div>
       <input
@@ -20,6 +18,7 @@ function AddTodoItem() {
         onChange={(e) => setItem(e.target.value)}
       />
       <button onClick={handleAddItem}>Add</button>
+      
     </div>
   );
 }

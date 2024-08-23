@@ -12,11 +12,15 @@ const todoSlice = createSlice({
        return state.filter(list=> list.id !==action.payload)
 
         },
-
-
+        editToDoItem: (state, action) => {
+            const { id, editToDo } = action.payload;
+            return state.map(item =>
+                item.id === id ? { ...item, todoItem: editToDo } : item
+            );
+        },
     }
 });
 
 
-export const { addTodoItem , deleteTodoItem} = todoSlice.actions;
+export const { addTodoItem , deleteTodoItem, editToDoItem} = todoSlice.actions;
 export default todoSlice.reducer;
